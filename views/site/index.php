@@ -1,9 +1,11 @@
 <?php
-
+namespace app\models;
+use yii\db\ActiveRecord;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
 ?>
+<?= \app\components\MenuWidget::widget(['tpl' => 'menu']) ?>
     <section id="slider"><!--slider-->
         <div class="container">
             <div class="row">
@@ -75,7 +77,7 @@ $this->title = 'My Yii Application';
                 <div class="col-sm-3">
                     <div class="left-sidebar">
 
-                        <?= \app\components\MenuWidget::widget(['tpl' => 'menu']) ?>
+                        
 
                         <h2>Category</h2>
                         <div class="panel-group category-products" id="accordian"><!--category-productsr-->

@@ -10,9 +10,9 @@ class Product extends ActiveRecord
 		return 'product';
 	}
 
-	/*связь с бд product*/
+	/*связь с бд category*/
 	public function getCategory(){
-		return $this->hasMany(Category::className(), ['id' => 'category_id']);
+		return $this->hasOne(Category::className(), ['id' => 'category_id']);
 	}
 }
 
