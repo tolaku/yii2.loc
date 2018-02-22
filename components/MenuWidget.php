@@ -21,8 +21,7 @@ class MenuWidget extends Widget {
 		$this->data = Category::find()->indexBy('id')->asArray()->all();
 		$this->tree = $this->getTree();
 		$this->menuHtml = $this->getMenuHtml($this->tree);
-		debug($this->tree);
-		return $this->tpl;
+		return $this->menuHtml;
 	}
 
 	protected function getTree(){
@@ -46,7 +45,7 @@ class MenuWidget extends Widget {
 
 	protected function catToTemplate($category){
 		ob_start();
-		include __DIR__ . '/menu_tpl' . $this->tpl;
+		include __DIR__ . '/menu_tpl/' . $this->tpl;
 		return ob_get_clean();
 	}
 }
