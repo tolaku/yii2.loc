@@ -1,5 +1,5 @@
 <li>
-	<a href="">
+	<a href="<?= \yii\helpers\Url::to(['category/view', 'id' => $category['id']]) ?>">
 		<?= $category['name'] ?>
 		<!-- если существует в категории элемент childs -->
 		<?php if( isset($category['childs']) ): ?>
