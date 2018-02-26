@@ -2,7 +2,6 @@
 namespace app\models;
 use yii\db\ActiveRecord;
 /* @var $this yii\web\View */
-
 $this->title = 'My Yii Application';
 ?>
     <section id="slider"><!--slider-->
