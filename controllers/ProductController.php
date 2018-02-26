@@ -11,7 +11,11 @@ class ProductController extends AppController{
 		$id = Yii::$app->request->get('id');
 		$product = Product::findOne($id);
 		//$product = Product::find()->with('category')->where(['id' => $id])->limit(1)->one();
-		return $this->render('view', compact('product'));
+		$hits = Product::find()->where(['hit' => '1'])->limit(6)->all();
+		$this->setMeta('E-SHOPPER | '. $product->name, $product->keywords, $product->description);
+		
+		// сюда передаем то что получили выше
+		return $this->render('view', compact('product', 'hits'));
 	}
 
 }
