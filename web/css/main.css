@@ -1160,6 +1160,10 @@ h2.title {
 	overflow:hidden;
 }
 
+.del-item{
+  cursor: pointer;
+}
+
 
 #similar-product {
   margin-top: 40px;
