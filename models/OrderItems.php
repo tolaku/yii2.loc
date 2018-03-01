@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii\db\ActiveRecord;
 use Yii;
 
 /**
@@ -25,6 +26,10 @@ class OrderItems extends \yii\db\ActiveRecord
         return 'order_items';
     }
 
+    public function getOrder(){
+        return $this->hasOne(Order::className(), ['id' => 'order_id']);
+    }
+
     /**
      * @inheritdoc
      */
@@ -41,16 +46,5 @@ class OrderItems extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'order_id' => 'Order ID',
-            'product_id' => 'Product ID',
-            'name' => 'Name',
-            'price' => 'Price',
-            'qty_item' => 'Qty Item',
-            'sum_item' => 'Sum Item',
-        ];
-    }
+
 }

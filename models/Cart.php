@@ -5,7 +5,7 @@ use yii\db\ActiveRecord;
 class Cart extends ActiveRecord{
 	public function addToCart($product, $qty = 1){
 		if(isset($_SESSION['cart'][$product->id])){
-			$_SESSION['cart'][$product->id]['qty'] =+ $qty;
+			$_SESSION['cart'][$product->id]['qty'] += $qty;
 		}else{
 			$_SESSION['cart'][$product->id] = [
 				'qty' => $qty,
@@ -28,3 +28,10 @@ class Cart extends ActiveRecord{
 		unset($_SESSION['cart'][$id]);
 	}
 }
+
+
+
+
+
+
+
