@@ -109,7 +109,7 @@ use yii\helpers\Html;
                     
                     </div>
                 </div>
-                
+
                 <div class="col-sm-9 padding-right">
 
                     <?php if( !empty($hits)): ?>
