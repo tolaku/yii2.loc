@@ -10,9 +10,9 @@ class ComposerStaticInit5f9d79085597732d5469ff6ddf0eef64
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -26,6 +26,10 @@ class ComposerStaticInit5f9d79085597732d5469ff6ddf0eef64
             'yii\\composer\\' => 13,
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
+        ),
+        'r' => 
+        array (
+            'rico\\yii2images\\' => 16,
         ),
         'p' => 
         array (
@@ -76,6 +80,7 @@ class ComposerStaticInit5f9d79085597732d5469ff6ddf0eef64
         ),
         'C' => 
         array (
+            'Codeception\\PHPUnit\\' => 20,
             'Codeception\\Extension\\' => 22,
             'Codeception\\' => 12,
         ),
@@ -113,6 +118,10 @@ class ComposerStaticInit5f9d79085597732d5469ff6ddf0eef64
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'rico\\yii2images\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/costa-rico/yii2-images',
         ),
         'phpDocumentor\\Reflection\\' => 
         array (
@@ -196,6 +205,10 @@ class ComposerStaticInit5f9d79085597732d5469ff6ddf0eef64
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Codeception\\PHPUnit\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/codeception/phpunit-wrapper/src',
+        ),
         'Codeception\\Extension\\' => 
         array (
             0 => __DIR__ . '/..' . '/codeception/base/ext',
@@ -208,6 +221,13 @@ class ComposerStaticInit5f9d79085597732d5469ff6ddf0eef64
     );
 
     public static $prefixesPsr0 = array (
+        'a' => 
+        array (
+            'abeautifulsite' => 
+            array (
+                0 => __DIR__ . '/..' . '/abeautifulsite/simpleimage/src',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
