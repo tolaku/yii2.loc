@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 08 2018 г., 20:54
+-- Время создания: Мар 10 2018 г., 16:58
 -- Версия сервера: 5.6.37
 -- Версия PHP: 7.0.21
 
@@ -72,6 +72,67 @@ INSERT INTO `category` (`id`, `parent_id`, `name`, `keywords`, `description`) VA
 (29, 0, 'Bags', 'сумки ключевики...', 'сумки описание...'),
 (30, 0, 'Shoes', NULL, NULL),
 (32, 0, 'Тестовая 2', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `image`
+--
+
+CREATE TABLE `image` (
+  `id` int(11) NOT NULL,
+  `filePath` varchar(400) NOT NULL,
+  `itemId` int(11) DEFAULT NULL,
+  `isMain` tinyint(1) DEFAULT NULL,
+  `modelName` varchar(150) NOT NULL,
+  `urlAlias` varchar(400) NOT NULL,
+  `name` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `image`
+--
+
+INSERT INTO `image` (`id`, `filePath`, `itemId`, `isMain`, `modelName`, `urlAlias`, `name`) VALUES
+(1, 'Products/Product1/493b32.jpg', 1, 1, 'Product', '94b1d321ea-1', ''),
+(2, 'Products/Product1/e7a578.jpg', 1, NULL, 'Product', 'f4ab65d317-2', ''),
+(3, 'Products/Product3/d0c6c9.jpg', 3, 0, 'Product', 'a1036a7913-2', ''),
+(4, 'Products/Product3/020d2d.jpg', 3, 0, 'Product', 'd3ba278265-3', ''),
+(5, 'Products/Product3/dd7251.jpg', 3, 0, 'Product', 'ec62d503da-4', ''),
+(6, 'Products/Product3/f12e04.jpg', 3, 0, 'Product', '2b2fe03147-5', ''),
+(7, 'Products/Product3/57595e.jpg', 3, 0, 'Product', 'cb46050f1c-6', ''),
+(8, 'Products/Product3/340389.jpg', 3, 1, 'Product', 'f759be1920-1', ''),
+(9, 'Products/Product3/36006c.jpg', 3, NULL, 'Product', 'e4acf66408-7', ''),
+(10, 'Products/Product3/b1701b.jpg', 3, NULL, 'Product', 'a2448fe5b3-8', ''),
+(11, 'Products/Product4/46155b.jpg', 4, 1, 'Product', '89308a6e0b-1', ''),
+(12, 'Products/Product4/64bbf9.jpg', 4, NULL, 'Product', '60baa1696f-2', ''),
+(13, 'Products/Product4/720ffc.jpg', 4, NULL, 'Product', 'd2c6607e41-3', ''),
+(14, 'Products/Product4/fdbe3e.jpg', 4, NULL, 'Product', '9f2092358a-4', ''),
+(15, 'Products/Product2/01ca0c.jpg', 2, 1, 'Product', 'c5b88ba21b-1', ''),
+(16, 'Products/Product2/7572e3.jpg', 2, NULL, 'Product', '964e37c6cb-2', ''),
+(17, 'Products/Product2/4235a3.jpg', 2, NULL, 'Product', 'fe4d246883-3', ''),
+(18, 'Products/Product2/1a6097.jpg', 2, NULL, 'Product', 'ee339f18ce-4', ''),
+(19, 'Products/Product2/ac2354.jpg', 2, NULL, 'Product', '0b975b25d5-5', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `migration`
+--
+
+CREATE TABLE `migration` (
+  `version` varchar(180) NOT NULL,
+  `apply_time` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `migration`
+--
+
+INSERT INTO `migration` (`version`, `apply_time`) VALUES
+('m000000_000000_base', 1520533102),
+('m140622_111540_create_image_table', 1520533105),
+('m140622_111545_add_name_to_image_table', 1520533105);
 
 -- --------------------------------------------------------
 
@@ -165,8 +226,8 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id`, `category_id`, `name`, `content`, `price`, `keywords`, `description`, `img`, `hit`, `new`, `sale`) VALUES
 (1, 4, 'Джинсы Garcia 244/32/856 28-32 р Серо-синие', '<p>Великолепные джинсы винтажно-голубого цвета. Настоящая находка для любителей качественного денима. Особенности: Зауженные к низу Пять карманов Высококачественный деним Высокая посадка (high fit) Выгодно подчеркивают фигуру</p>\r\n\r\n<p><img alt=\"\" src=\"/web/upload/global/gallery1.jpg\" style=\"height:183px; width:208px\" /></p>\r\n\r\n<p><img alt=\"\" src=\"/web/upload/global/1_%D0%B4%D0%BD%D0%B5%D0%BC.JPG\" /></p>\r\n', 10, '', '', 'product1.jpg', '0', '0', '0'),
 (2, 4, 'Джинсы MR520 MR 227 20002 0115 29-34 р Синие', '<p>MR520 &ndash; амбициозный восточноевропейский бренд, который предлагает качественную и стильную одежду, сделанную специально для молодых людей, следящих за своим внешним видом. <strong>Женские джинсы </strong>фасона boyfriend fit (в переводе с англ. &ndash; &quot;джинсы моего парня&quot;). Модель с зауженными штанинами. Застегивается на пуговицы. Изделие с низкой посадкой. Джинсы дополнены прорезными карманами спереди и накладными карманами сзади. Изделие декорировано эффектом потертости, вареным эффектом и необычными швами.</p>\r\n', 56, '', '', 'product2.jpg', '1', '1', '0'),
-(3, 9, 'Блуза Mango 53005681-05 M Бежевая', 'Испанский бренд модной одежды \"Mango\" родился в 1984 году в Барселоне, где и по сей день находится штаб-квартира компании. В том же городе появился и первый магазин — на улице Пасео де Грасия (Paseo de Gracia). Компания, основанная братьями Исааком и Нахманом Андиком (Isaac & Nahman Andic), очень быстро набрала популярность — всего лишь годом позднее был открыт магазин в другом городе, на этот раз в Валенсии. Одежда \"Mango\" отличается высоким качеством, приемлемой ценой, современным дизайном и неповторимым стилем.', 20, NULL, NULL, 'product3.jpg', '1', '1', '0'),
-(4, 21, 'Блуза Tom Tailor TT 20312490071 7610 M Зелёная', '\r\n\r\nTom Tailor Group — один из ведущих и быстро развивающихся Fashion холдингов германии и европы, продукция которого ориентирована на целевую аудиторию в возрасте от 0 до 60 лет.\r\n\r\nTom Tailor известен на рынке текстиля с 1962 года и до сих пор сохраняет стандарты немецкого качества. Tom Tailor предлагает повседневную одежду и аксессуары высокого качества для женщин, мужчин и детей.\r\n\r\nОдежда от Tom Tailor поможет создать активный повседневный образ с нотками элегантности.', 70, NULL, NULL, 'product4.jpg', '1', '0', '1'),
+(3, 9, 'Блуза Mango 53005681-05 M Бежевая', '<p>Испанский бренд модной одежды &quot;Mango&quot; родился в 1984 году в Барселоне, где и по сей день находится штаб-квартира компании. В том же городе появился и первый магазин &mdash; на улице Пасео де Грасия (Paseo de Gracia). Компания, основанная братьями Исааком и Нахманом Андиком (Isaac &amp; Nahman Andic), очень быстро набрала популярность &mdash; всего лишь годом позднее был открыт магазин в другом городе, на этот раз в Валенсии. Одежда &quot;Mango&quot; отличается высоким качеством, приемлемой ценой, современным дизайном и неповторимым стилем.</p>\r\n', 20, '', '', 'product3.jpg', '1', '1', '0'),
+(4, 21, 'Блуза Tom Tailor TT 20312490071 7610 M Зелёная', '<p>Tom Tailor Group &mdash; один из ведущих и быстро развивающихся Fashion холдингов германии и европы, продукция которого ориентирована на целевую аудиторию в возрасте от 0 до 60 лет. Tom Tailor известен на рынке текстиля с 1962 года и до сих пор сохраняет стандарты немецкого качества. Tom Tailor предлагает повседневную одежду и аксессуары высокого качества для женщин, мужчин и детей. Одежда от Tom Tailor поможет создать активный повседневный образ с нотками элегантности.</p>\r\n', 70, '', '', 'product4.jpg', '1', '0', '1'),
 (5, 25, 'Блузка Kira Plastinina 17-16-17453-SM-29 S', NULL, 0, NULL, NULL, 'product5.jpg', '1', '0', '0'),
 (6, 28, 'Кардиган Levi\'s Icy Grey Heather M', NULL, 100, NULL, NULL, 'product6.jpg', '1', '0', '0'),
 (7, 28, 'Кардиган ONLY ON 15102048 M Black Tan/Partridg', '\r\n\r\nCasual марка молодежной женской одежды ONLY является частью датской компании Bestseller AS. Изначально Bestseller занимался производством детской одежды, а в 1995 году появилась на свет марка ONLY. Популярность этой марки возрастала быстрыми темпами и теперь ONLY владеет 770 магазинами в более чем 40 странах мира.\r\n\r\nONLY — бренд стильной молодежной одежды. Это бренд для тех, кто любит добиваться успеха и быть не таким, как все. Демократичные цены, модные модели, экологически чистые ткани делают одежду от ONLY сверхпопулярной.', 0, NULL, NULL, 'no-image.png', '1', '1', '0'),
@@ -209,6 +270,18 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `image`
+--
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `migration`
+--
+ALTER TABLE `migration`
+  ADD PRIMARY KEY (`version`);
+
+--
 -- Индексы таблицы `order`
 --
 ALTER TABLE `order`
@@ -241,6 +314,11 @@ ALTER TABLE `user`
 --
 ALTER TABLE `category`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+--
+-- AUTO_INCREMENT для таблицы `image`
+--
+ALTER TABLE `image`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT для таблицы `order`
 --
